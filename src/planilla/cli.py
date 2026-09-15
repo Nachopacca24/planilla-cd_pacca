@@ -4,7 +4,10 @@ import sys
 
 from planilla.calculo import liquidar, resumen
 
-USO = "uso: planilla salario_base=4000 horas_extra=8 dias_trabajados=30 cuota_prestamo=500 afiliado_igss=si"
+USO = (
+    "uso: planilla salario_base=4000 horas_extra=8 dias_trabajados=30 "
+    "cuota_prestamo=500 afiliado_igss=si"
+)
 
 
 def parse_args(argv):
@@ -16,7 +19,7 @@ def parse_args(argv):
         clave, valor = arg.split("=", 1)
         try:
             datos[clave] = float(valor)
-        except:
+        except ValueError:
             datos[clave] = valor
     return datos
 
