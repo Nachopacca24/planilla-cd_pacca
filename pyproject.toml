@@ -24,6 +24,12 @@ dev = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+# 80%: cubre con margen todas las reglas de negocio y la CLI sin exigir el
+# 100% en la guarda trivial `if __name__ == "__main__"` de cli.py.
+addopts = "--cov=planilla --cov-report=term-missing --cov-report=html --cov-fail-under=80"
+
+[tool.coverage.run]
+source = ["src/planilla"]
 
 [tool.ruff]
 line-length = 88
